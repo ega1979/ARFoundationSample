@@ -1,2 +1,4 @@
 . filter=lfs diff=lfs merge=lfs -text
 HSTracking3d/Libraries/libiPhone-lib.a filter=lfs diff=lfs merge=lfs -text
+ARCore/HSTracking3d/Libraries/libiPhone-lib.a filter=lfs diff=lfs merge=lfs -text
+ARKit/HSTracking3d/Libraries/libiPhone-lib.a filter=lfs diff=lfs merge=lfs -text
