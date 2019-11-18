@@ -111,6 +111,9 @@ The functionality demonstrated here is conceptually similar to the `ARKitCoachin
 
 This sample demonstrates environment probes, a feature which attempts to generate a 3D texture from the real environment and applies it to reflection probes in the scene. The scene includes several spheres which start out completely black, but will change to shiny spheres which reflect the real environment when possible.
 
+---
+
+
 ## ARWorldMap
 
 An `ARWorldMap` is an ARKit-specific feature which lets you save a scanned area. ARKit can optionally relocalize to a saved world map at a later time. This can be used to synchronize multiple devices to a common space, or for curated experiences specific to a location, such as a museum exhibition or other special installation. Read more about world maps [here](https://developer.apple.com/documentation/arkit/arworldmap). A world map will store most types of trackables, such as reference points and planes.
@@ -159,68 +162,84 @@ Alternatively, you can [scan your own objects](https://developer.apple.com/docum
 
 This sample requires iOS 12 and is not supported on Android.
 
+
 ## Face Tracking
 
-There are several samples showing different face tracking features. Some are ARCore specific and some are ARKit specific.
+様々なフェイストラッキング機能を示すいくつかのサンプル。ARCore向けのものとARKit向けのものを用意しているものもある。
+
 
 ### FacePose
 
-This is the simplest face tracking sample and simply draws an axis at the detected face's pose.
-
-This sample uses the front-facing (i.e., selfie) camera.
+これは最もシンプルなフェイストラッキングのサンプルで単に検知した顔のポーズに軸を描画。
+このサンプルはフロントカメラ（自撮り）を使用。
 
 ### FaceMesh
 
-This sample instantiates and updates a mesh representing the detected face. Information about the device support (e.g., number of faces that can be simultaneously tracked) is displayed on the screen.
+検出された顔を表すメッシュをインスタンス化してアップデートするサンプル。端末のサポートに関する情報（同時に追跡できる顔の数など）を画面に表示。
 
-This sample uses the front-facing (i.e., selfie) camera.
+このサンプルはフロントカメラ（自撮り）を使用。
 
 ### ARKitFaceBlendShapes
 
-"Blend shapes" are an ARKit-specific feature which provides information about various facial features on a scale of 0..1. For instance, "wink" and "frown". In this sample, blend shapes are used to puppet a cartoon face which is displayed over the detected face. See the [`ARKitBlendShapeVisualizer.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ARKitBlendShapeVisualizer.cs).
+`Blend shapes` は、ARKit独自の機能で、例えば、`wink` and `frown`などさまざまな顔の特徴に関する情報について0.1単位の大きさで提供する。このサンプルでは、​​`Blend shapes` を使用して、検出された顔の上に表示されるカートン（漫画風）の顔をパペットとして操作できる。
 
-This sample uses the front-facing (i.e., selfie) camera.
+[`ARKitBlendShapeVisualizer.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ARKitBlendShapeVisualizer.cs) を参照。
+
+このサンプルはフロントカメラ（自撮り）を使用。
 
 ### ARCoreFaceRegions
 
-"Face regions" are an ARCore-specific feature which provides pose information for specific "regions" on the detected face, e.g., left eyebrow. In this example, axes are drawn at each face region. See the [`ARCoreFaceRegionManager.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ARCoreFaceRegionManager.cs).
+`Face regions`は、ARCore独自の機能で、検出した顔の特定の `regions（領域）` に関するポーズの情報を提供する。 このサンプルでは各々の顔の領域に軸を描画。[`ARCoreFaceRegionManager.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ARCoreFaceRegionManager.cs) を参照。
 
-This sample uses the front-facing (i.e., selfie) camera.
+このサンプルはフロントカメラ（自撮り）を使用。
+
 
 ### EyeLasers, EyePoses, FixationPoint
 
-These samples demonstrate eye and fixation point tracking. Eye tracking produces a pose (position and rotation) for each eye in the detected face, and the "fixation point" is the point the face is looking at (i.e., fixated upon). `EyeLasers` uses the eye pose to draw laser beams emitted from the detected face.
+これらサンプルは目と注視点をトラキングする様を示したデモ。アイトラッキングは検出した顔の目に関する姿勢（位置と回転）を生成し、 `fixation point(注視点)` は顔を見ている（つまり注視されている）点にあたる。 `EyeLasers` は、目の姿勢を使って検出された顔から放射されるレーザービームを描画している。
 
-This sample uses the front-facing (i.e., selfie) camera and requires an iOS device with a TrueDepth camera.
+このサンプルはフロントカメラ（自撮り）を使用しており、さらにTrueDepth cameraを搭載したiOS端末が必須。
+
 
 ### RearCameraWithFrontCameraFaceMesh
 
-iOS 13 adds support for face tracking while the rear camera is active. This sample does not show much other than number of currently tracked faces. To enable this mode in ARFoundation, you must enable both an `ARFaceManager` and at least one other manager which requires the rear camera. This sample enables both the `ARFaceManager` and `ARPlaneManager` to achieve this.
+iOS 13では背面カメラがアクティブなときのフェイストラッキングのサポートが追加されている。このサンプルは現在追跡されている顔の数だけのものである。ARFoundationでこのモードを有効にするために、 `ARFaceManager` と背面カメラを必須とする少なくとも1つの他のマネージャー（※この詳細はまだ調査中）の両方を有効にする必要がある。このサンプルでは `ARFaceManager` と `ARPlaneManager` を有効にしている。
 
-This feature requires a device with a TrueDepth camera and an A12 bionic chip running iOS 13.
+この機能は、TrueDepth cameraとiOS 13が動作しているA12 bionicチップ搭載した端末を必須とする。
+
 
 ## HumanBodyTracking2D
 
-This sample demonstrates 2D screen space body tracking. A 2D skeleton is generated when a person is detected. See the [`ScreenSpaceJointVisualizer.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ScreenSpaceJointVisualizer.cs) script.
+2D画面空間におけるボディトラッキングを示すサンプル。人が検出されると、2Dスケルトンを生成。
+[`ScreenSpaceJointVisualizer.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ScreenSpaceJointVisualizer.cs) のスクリプトを参照。	
 
-This sample requires a device with an A12 bionic chip running iOS 13.
+このサンプルはiOSが動作しているA12 bionicチップが搭載された端末を必須とする。
+
 
 ## HumanBodyTracking3D
 
-This sample demonstrates 3D world space body tracking. A 3D skeleton is generated when a person is detected. See the [`HumanBodyTracker.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/HumanBodyTracker.cs) script.
+3Dワールド空間におけるボディトラッキングを示すサンプル。人が検出されると、3Dスケルトンを生成。
+[`HumanBodyTracker.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/HumanBodyTracker.cs) のスクリプトを参照。
 
-This sample requires a device with an A12 bionic chip running iOS 13.
+このサンプルはiOSが動作しているA12 bionicチップが搭載された端末を必須とする。
+
 
 ## HumanSegmentationImages
 
-This sample demonstrates "people occlusion", which can produce stencil and depth textures for detected persons. This sample is very primitive and simply displays the raw texture on the screen. We are currently working on a better sample.
+このサンプルは `people occlusion(ピープルオクルージョン)` を示すサンプルで、検出した人に関するステンシルと震度テクスチャを生成する。このサンプルは非常にシンプルなもので、画面上に単に生のテクスチャを表示したもの。
 
-This sample requires a device with an A12 bionic chip running iOS 13.
+このサンプルはiOSが動作しているA12 bionicチップが搭載された端末を必須とする。
+
 
 ## AllPointCloudPoints
 
-This sample shows all feature points over time, not just the current frame's feature points as the "AR Default Point Cloud" prefab does. It does this by using a slightly modified version of the `ARPointCloudParticleVisualzier` component that stores all the feature points in a Dictionary. Since each feature point has a unique identifier, it can look up the stored point and update its position in the dictionary if it already exists. This can be a useful starting point for custom solutions that require the entire map of point cloud points, e.g., for custom mesh reconstruction techniques.
+`AR Default Point Cloud` プレハブが行っているように現在のフレームの特徴点だけでなく、すべての特徴点を経時的に表示するサンプル。
+これはすべての特徴点をディクショナリに格納する `ARPointCloudParticleVisualzier` の一部修正されたバージョンを使用することで利用することで行うことができる。
+各特徴点が一意的な識別子を持っているので、保存された点を検索し、存在している場合はディクショナリにあるその点の位置を更新する。
+これはポイントクラウドの点群マップを必要とするカスタムソリューション（例えばカスタムメッシュの再構築技術など）に役に立つと思われる。
 
-This sample has two UI components:
-* A button in the lower left which allows you to switch between visualizing "All" the points and just those in the "Current Frame".
+このサンプルでは以下2つのUIコンポーネントを用意。
+* 左下のボタンで `All（すべて）` のポイントと `Current Frame（現在のフレーム）` のポイントだけに切り替えることが可能。
 * Text in the upper right which displays the number of points in each point cloud (ARCore & ARKit will only ever have one).
+右上のテキストは
+それぞれのPoint Cloud（ARCoreとARKitには一つしかありません）にあるポイントの数を表示
