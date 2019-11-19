@@ -71,97 +71,115 @@ PoindCloudのビジュアライゼーションと平面検出を有効した簡�
 
 This sample shows how to adjust the apparent scale of content in an AR scene. It does this by moving, rotating, and scaling the `ARSessionOrigin` instead of the content. Complex scenes often can't be moved after creation (e.g., terrain), and scale can negatively affect other systems such as physics, particle effects, and AI navigation. The `ARSessionOrigin`'s scale feature is useful if you want to make your content "appear" at a position on a detected plane and to scale, for example, a building sized object to a table-top miniature.
 
+
+このサンプルは、ARシーンのコンテンツの見かけのスケールを調整する方法を示しています。これは、コンテンツの代わりに「ARSessionOrigin」を移動、回転、およびスケーリングすることにより行います。複雑なシーンは、作成後に移動できない場合が多く（例：地形）、スケールは物理学、パーティクルエフェクト、AIナビゲーションなどの他のシステムに悪影響を与える可能性があります。 `ARSessionOrigin`のスケール機能は、検出された平面上の位置にコンテンツを「表示」し、たとえば、テーブルサイズのミニチュアに建物サイズのオブジェクトをスケールする場合に便利です。
+
 To use this sample, first move the device around until a plane is detected, then tap on the plane. Content will appear at the touch point. After the content is placed, you can adjust its rotation and scale using the on-screen sliders. Note that the content itself is never moved, rotated, or scaled.
 
-The relevant script is [`MakeAppearOnPlane.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/MakeAppearOnPlane.cs).
+このサンプルを使用するには、まず飛行機が検出されるまでデバイスを動かしてから、飛行機をタップします。タッチポイントにコンテンツが表示されます。コンテンツを配置した後、画面上のスライダーを使用してその回転と拡大縮小を調整できます。コンテンツ自体は移動、回転、拡大縮小されないことに注意してください。
+
+関連するスクリプトは[`MakeAppearOnPlane.cs`]（https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/MakeAppearOnPlane.cs）。
+
 
 ## CameraImage
 
-This samples shows how to manipulate the camera textures on the CPU. The video feed for pass through cameras involves GPU-only textures, and manipulating them on the CPU (e.g., for computer vision algorithms) would require an expensive GPU read. Fortunately, ARFoundation provides an API for obtaining the camera image on the CPU for further processing.
+CPU上でかめたテクスチャを操作する方法を示すサンプル。パススルーカメラのビデオフォードにはGPUのみのテクスチャが含まれ、CPUでそれらを操作（例えばコンピュータービジョンのアルゴリズム用）には、高価なGPUの読み取りが必要になる。幸いにも、ARFoundationでは、さらなる処理のためにCPU上でカメラ画像を取得するAPIを提供している。
 
-The relevant script is [`TestCameraImage.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/TestCameraImage.cs).
+関連するスクリプトは[`TestCameraImage.cs`]（https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/TestCameraImage.cs）。
 
-The resolution of the CPU image is affected by the camera's configuration. The current configuration is indicated at the bottom left of the screen inside a dropdown box which lets you select one of the supported camera configurations. The [`CameraConfigController.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/CameraConfigController.cs) demonstrates enumerating and selecting a camera configuration. It is on the `CameraConfigs` GameObject.
+It is on the `CameraConfigs` GameObject.
+CPUイメージの解像度はカメラの設定に影響する。現在の設定は、サポートされているカメラ設定のいずれかを選択できるドロップボックス内の画面の左下に示されている。[`CameraConfigController.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/CameraConfigController.cs)のところでカメラ設定の列挙と選択を行っている。これは`CameraConfigs` GameObjectで使われている。
+
 
 ## TogglePlaneDetection
 
-This sample shows how to toggle plane detection on and off. When off, it will also hide all previously detected planes by disabling their GameObjects. See [`PlaneDetectionController.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/PlaneDetectionController.cs).
+平面検出のON／OFFを切り替えるやり方を示すサンプル。OFFの場合、GameObjectを無効にすることで、以前に検出されたすべての平面が非表示になる。[`PlaneDetectionController.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/PlaneDetectionController.cs)を参照。
+
 
 ## PlaneClassification
 
-This sample shows how to query for a plane's classification. Some devices attempt to classify planes into categories such as "door", "seat", "window", and "floor". This scene enables plane detection using the `ARPlaneManager`, and uses a prefab which includes a component which displays the plane's classification, or "none" if it cannot be classified.
+平面の分類を照会する方法を示すサンプル。端末で平面を「ドア」「座席」「窓」「床」などカテゴリごとに分類する。このサンプルのシーンでは `ARPlaneManager` を使い平面検出を有効にして、平面分類を表示するコンポーネントを含むPrefabを使っている。また、分類できない場合は「なし」としている。
+
 
 ## FeatheredPlanes
 
-This sample demonstrates basic plane detection, but uses a better looking prefab for the `ARPlane`. Rather than being drawn as exactly defined, the plane fades out towards the edges.
+このサンプルは基本的な平面検出のデモだが、 `ARPlane` に見栄えの良いPrefabを使用している。正確に定義されたとおりに描画するのではなく、平面は端に向かってフェードアウトする。
+
 
 ## PlaneOcclusion
 
-This sample demonstrates basic plane detection, but uses an occlusion shader for the plane's material. This makes the plane appear invisible, but virtual objects behind the plane are culled. This provides an additional level of realism when, for example, placing objects on a table.
+このサンプルは基本的な平面検出のデモだが、平面のマテリアルにオクルージョンシェーダーを使用している。これにより、平面が見えなくなるが、平面の背後の仮想オブジェクトはカリングされる（描画されなくなる）。これによりさらにリアルなレベルでオブジェクトをテーブルに配置するなどといったことが実現する。
 
-Move the device around until a plane is detected (its edges are still drawn) and then tap on the plane to place/move content.
+平面が検出されるまで端末を動かし（端が描画される）、平面上をタップしてコンテンツを配置／移動。
+
 
 ## UX
 
-This sample demonstrates some UI that may be useful when guiding new users through an AR application. It uses the script [`UIManager.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/UX/UIManager.cs) to trigger different UI animations based on events (e.g., a plane being detected).
+このサンプルはARアプリケーションを初めて体験するユーザーをガイドするとき補助するUIのデモ。[`UIManager.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/UX/UIManager.cs)のスクリプトを使って、平面検出などのイベントに基づいて様々なUIアニメーションをトリガーしている。
 
-The functionality demonstrated here is conceptually similar to the `ARKitCoachingOverlay` sample.
+ここでデモしている機能は、概念的に `ARKitCoachingOverlay` のサンプルに似たものである。
 
 ## EnvironmentProbes
 
-This sample demonstrates environment probes, a feature which attempts to generate a 3D texture from the real environment and applies it to reflection probes in the scene. The scene includes several spheres which start out completely black, but will change to shiny spheres which reflect the real environment when possible.
-
----
+このサンプルは環境プローブ、つまり実際の環境から3Dテクスチャを生成し、シーン内の反射プローブに適用する機能を示すデモ。
+シーンには完全に黒な状態で始まるいくつかの球体が含まれているが、可能な場合は実際の環境を反映する光沢のある球体に変わっていく。
 
 
 ## ARWorldMap
 
-An `ARWorldMap` is an ARKit-specific feature which lets you save a scanned area. ARKit can optionally relocalize to a saved world map at a later time. This can be used to synchronize multiple devices to a common space, or for curated experiences specific to a location, such as a museum exhibition or other special installation. Read more about world maps [here](https://developer.apple.com/documentation/arkit/arworldmap). A world map will store most types of trackables, such as reference points and planes.
+`ARWorldMap` は、スキャンしたエリアを保存できるARKit特有の機能。オプションで、ARKitは後で保存されたワールドマップに再構築（リローカライズ）することが可能。この機能を使用して、共通のスペースに複数の端末を同期させたり、博物館の展示やその他の特別なインストレーションなどといった場所で固有のキュレーションされた体験を行うことが可能になる。ワールドマップの詳細については [こちら]（https://developer.apple.com/documentation/arkit/arworldmap）　。ワールドマップには、参照点（特徴点？）や平面など、ほとんどの種類の追跡可能なオブジェクトが保存される。
 
-The [`ARWorldMapController.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ARWorldMapController.cs) performs most of the logic in this sample.
+このサンプルでは、 [`ARWorldMapController.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/ARWorldMapController.cs) で上記ロジックのほとんどを行われている。
 
-This sample requires iOS 12.
+このサンプルはiOS12(以上)必須。
+
 
 ## ARCollaborationData
 
-Similar to an `ARWorldMap`, a "collaborative session" is an ARKit-specific feature which allows multiple devices to share session information in real time. Each device will periodically produce `ARCollaborationData` which should be sent to all other devices in the collaborative session. ARKit will share each participant's pose and all reference points. Other types of trackables, such as detected planes, are not shared.
+`ARWorldMap` と似て `collaborative session` は、ARKit固有の機能で、利用することで複数の端末がセッション情報をリアルタイムに共有することができる。それぞれの端末は定期的に `ARCollaborationData` を生成し、collaborative session内ですべての他の端末に送信される。ARKitは、各参加者のポーズやすべての参照点を共有する。検出された平面など、他の種類の追跡可能なオブジェクトは共有されない。
 
-See [`CollaborativeSession.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scenes/ARCollaborationData/CollaborativeSession.cs). Note there are two types of collaboration data: "Critical" and "Optional". "Critical" data is available periodically and should be sent to all other devices reliably. "Optional" data is available nearly every frame and may be sent unreliably. Data marked as "optional" includes data about the device's location, which is why it is produced very frequently (i.e., every frame).
+[`CollaborativeSession.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scenes/ARCollaborationData/CollaborativeSession.cs) を参照。
+`Critical` と `Optional` という2種類のcollaboration dataがあることに注意すること。`Critical` は、定期的に利用可能で、すべての他の端末に信頼性の高い方法ｄせに送信する必要がある。一方で、 `Optional` は、ほぼすべてのフレームで利用可能で信頼性の低い方法で送信してもよい。 `Optional` としてマークされたデータには、端末の位置に関するデータが含まれており、そのため非常に頻繁に（つまり毎フレーム）生成される。
 
-Note that ARKit's support for collaborative sessions does not include any networking; it is up to the developer to manage the connection and send data to other participants in the collaborative session. For this sample, we used Apple's [MultipeerConnectivity Framework](https://developer.apple.com/documentation/multipeerconnectivity). Our implementation can be found [here](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scripts/Multipeer).
+`collaborative sessions` に対するARKitのサポートにはいかなるネットワーキングについても含まれていないことに注意すること。接続を管理し、`collaborative sessions` にいる他の参加者にデータを送信することについては開発者の責任。
+このサンプルに関して、Appleの[MultipeerConnectivity Framework](https://developer.apple.com/documentation/multipeerconnectivity)を利用している。
+実装については、[ここ](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scripts/Multipeer)を参照。
 
-You can create reference points by tapping on the screen. Reference points are created when the tap results in a raycast which hits a point in the point cloud.
+画面をタップして、参照点を作成できる。タップした結果、Point Cloudにある点に当たったレイキャストがあるときに参照点が作成される。
 
-This sample requires iOS 13.
+このサンプルはiOS13必須。
+
 
 ## ARKitCoachingOverlay
 
-The coaching overlay is an ARKit-specific feature which will overlay a helpful UI guiding the user to perform certain actions to achieve some "goal", such as finding a horizontal plane.
+`Coaching Overlay` はARKit固有の機能で、水平面を見つけるといったとある「ゴール（目標）」を成し遂げるためのアクションを行えるようにユーザーを導きやすいUIをオーバーレイする。
 
-The coaching overlay can be activated automatically or manually, and you can set its goal. In this sample, we've set the goal to be "Any plane", and for it to activate automatically. This will display a special UI on the screen until a plane is found. There is also a button to activate it manually.
+`Coaching Overlay` は自動でもしくは手動でアクティベートすることができ、「ゴール（目標）」をセットできる。このサンプルでは、「任意の平面」をゴールとして設定し、自動的にアクティベートするようにしている。このサンプルでは平面が見つかるまで画面に特別なUIを表示している。また手動でアクシべーとするボタンも用意。
 
-The sample includes a MonoBehavior to define the settings of the coaching overlay. See [`ARKitCoachingOverlay.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scenes/ARKitCoachingOverlay/ARKitCoachingOverlay.cs).
+サンプルは `Coaching Overlay` の設定を定義できるようにMonoBehaviorを含んでいる。[`ARKitCoachingOverlay.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scenes/ARKitCoachingOverlay/ARKitCoachingOverlay.cs)を参照。
 
-This sample requires iOS 13.
+このサンプルはiOS13必須。
+
 
 ## ImageTracking
 
-This sample demonstrates image tracking. Image tracking is supported on ARCore and ARKit. To enable image tracking, you must first create an `XRReferenceImageLibrary`. This is the set of images to look for in the environment. [Click here](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/image-tracking.html) for instructions on creating one.
+このサンプルはImage Trackingのデモ。Image TrackingはARCoreとARKitでサポート。Image Trackingを有効にするには、最初に `XRReferenceImageLibrary` を作成しないといけない。`XRReferenceImageLibrary`　は環境下で画像を検索できるようになるための画像セットになる。Image Trackingを作成する手順に関しては、[ここを参照](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/image-tracking.html)
 
-At runtime, ARFoundation will generate an `ARTrackedImage` for each detected reference image. This sample uses the [`TrackedImageInfoManager.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scenes/ImageTracking/TrackedImageInfoManager.cs) script to overlay the original image on top of the detected image, along with some meta data.
+実行時にARFoundationは各検出した参照画像に関して `ARTrackedImage` を生成する。このサンプルでは、[`TrackedImageInfoManager.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scenes/ImageTracking/TrackedImageInfoManager.cs)のスクリプトを使って検出した画像の上にあるメタデータとともに元の画像をオーバーレイしている。
 
-Run the sample on an ARCore or ARKit-capable device and point your device at one of the images in [`Assets/Scenes/ImageTracking/Images`](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scenes/ImageTracking/Images). They can be displayed on a computer monitor; they do not need to be printed out.
+サンプルはARCoreかARKit対応の端末を使い、端末を[`Assets/Scenes/ImageTracking/Images`](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scenes/ImageTracking/Images)内のいずれかの画像に向けて見ると試すことができる。
+
 
 ## ObjectTracking
 
-Similar to the image tracking sample, this sample detects a 3D object from a set of reference objects in an `XRReferenceObjectLibrary`. [Click here](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/object-tracking.html) for instructions on creating one.
+Image Trackingのサンプルに似て、このサンプルは `XRReferenceObjectLibrary` で参照オブジェクトのセットから3D object検出する。これの作成手順については、[ここを参照](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/object-tracking.html) 。
 
-To use this sample, you must have a physical object the device can recognize. The sample's reference object library is built using two reference objects. The sample includes [printable templates](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scenes/Object%20Tracking/Printable%20Templates) which can be printed on 8.5x11 inch paper and folded into a cube and cylinder.
+このサンプルでは、端末で認識できる物理オブジェクトが必要。サンプルの参照オブジェクトライブラリは2つの参照オブジェクトを使ってビルドされている。このサンプルには、[印刷可能なテンプレート](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scenes/Object%20Tracking/Printable%20Templates)が含まれていて、8.5x11インチの紙に印刷して、キューブ上の筒に折りたたんで使うことができる。
 
-Alternatively, you can [scan your own objects](https://developer.apple.com/documentation/arkit/scanning_and_detecting_3d_objects) and add them to the reference object library.
+代わりに、[自身のオブジェクトをスキャン](https://developer.apple.com/documentation/arkit/scanning_and_detecting_3d_objects)して、参照オブジェクトのライブラリに追加することも可能。
 
-This sample requires iOS 12 and is not supported on Android.
 
+このサンプルはiOS12(以上)必須でAndroidは非サポート。	
 
 ## Face Tracking
 
