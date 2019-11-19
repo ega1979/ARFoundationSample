@@ -1,38 +1,39 @@
-# AR Foundation Samples
+# AR Foundation サンプル集
 
-Example projects that use [*AR Foundation 3.0*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html) and demonstrate its functionality with sample assets and components.
+[*AR Foundation 3.0*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html)を使い、サンプルのアセットとコンポーネントでその機能を試すサンプル集としてのプロジェクト。
 
-This set of samples relies on five Unity packages:
+このサンプルセットは5つのUnityパッケージに依存している。
 
-* ARSubsystems ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/index.html))
-* ARCore XR Plugin ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arcore@3.0/manual/index.html))
-* ARKit XR Plugin ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arkit@3.0/manual/index.html))
-* ARKit Face Tracking ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arkit-face-tracking@3.0/manual/index.html))
-* ARFoundation ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html))
+* ARSubsystems ([ドキュメント](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/index.html))
+* ARCore XR Plugin ([ドキュメント](https://docs.unity3d.com/Packages/com.unity.xr.arcore@3.0/manual/index.html))
+* ARKit XR Plugin ([ドキュメント](https://docs.unity3d.com/Packages/com.unity.xr.arkit@3.0/manual/index.html))
+* ARKit Face Tracking ([ドキュメント](https://docs.unity3d.com/Packages/com.unity.xr.arkit-face-tracking@3.0/manual/index.html))
+* ARFoundation ([ドキュメント](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html))
 
-ARSubsystems defines an interface, and the platform-specific implementations are in the ARCore and ARKit packages. ARFoundation turns the AR data provided by ARSubsystems into Unity `GameObject`s and `MonoBehavour`s.
+ARSubsystemsはインターフェースを定義し、プラットフォーム固有の実装はARCoreおよびARKitパッケージに含まれている。ARFoundationは、ARSubsystemsが提供するARデータをUnityの `GameObject` と `MonoBehavour` に変換する。
 
-The `master` branch is compatible with Unity 2019.2 and later. For 2018.4, see the [1.5-preview branch](https://github.com/Unity-Technologies/arfoundation-samples/tree/1.5-preview).
+`master` ブランチはUnity 2019.2以降と互換性がある。2018.4系については[1.5-preview branch](https://github.com/Unity-Technologies/arfoundation-samples/tree/1.5-preview)を参照。
 
-## Why is ARKit Face Tracking a separate package?
+## なぜARKitのフェイストラッキングは別のパッケージになっているのか？
 
-For privacy reasons, use of ARKit's face tracking feature requires additional validation in order to publish your app on the App Store. If your application binary contains certain face tracking related symbols, your app may fail validation. For this reason, we provide this feature as a separate package which must be explicitly included.
+プライバシー上の理由から、ARKitのフェイストラッキングの機能を使用したアプリをApp Storeでアプリを公開するには、追加の審査が必要となる。アプリケーションバイナリに特定のフェイストラッキング関連のシンボルが含まれている場合、アプリの審査に落ちることがあります。このため、フェイストラッキングの機能は個別のパッケージとして提供され、明示的に含める必要がある。
 
 ## ARKit 3 Support
 
-The ARKit XR Plugin and ARKit Face Tacking packages support both ARKit 2 and ARKit 3 simultaneously. We supply separate libraries and select the appropriate one based on the version of Xcode selected in your Build Settings. This should eliminate the confusion over which package version is compatible with which Xcode version.
+ARKit XR PluginとARKit Face TackingはARKit2とARKit3を両方にサポート。個別のライブラリを提供し、Build Settingsで選択したXcodeのバージョンに基づいて適切なライブラリを選択する。これによって、どのパッケージバージョンがどのXcodeバージョンと互換性があるかという混乱が解消される。
 
-The ARKit 3 features require Xcode 11 and iOS/iPadOS 13.
+ARKit3の機能はXCode11とiOS/iPadOS13が必須。
 
-## Instructions for installing AR Foundation
 
-1. Download the latest version of Unity 2019.2 or later.
+## AR Foundationの導入手順
 
-2. Open Unity, and load the project at the root of the *arfoundation-samples* repository.
+1. Unity 2019.2以降の最新バージョンをダウンロード。
 
-3. Open your choice of sample scene.
+2. Unityを開きプロジェクトを *arfoundation-samples* リポジトリのrootでロードする。
 
-4. See the [AR Foundation Documentation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@latest?preview=1) for usage instructions and more information.
+3. サンプルのシーンを選択して開く。
+
+4. もっと詳しい手順や情報については[AR Foundation Documentation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@latest?preview=1)を参照。
 
 # サンプルプロジェクト
 
@@ -69,12 +70,11 @@ PoindCloudのビジュアライゼーションと平面検出を有効した簡�
 
 ## Scale
 
-This sample shows how to adjust the apparent scale of content in an AR scene. It does this by moving, rotating, and scaling the `ARSessionOrigin` instead of the content. Complex scenes often can't be moved after creation (e.g., terrain), and scale can negatively affect other systems such as physics, particle effects, and AI navigation. The `ARSessionOrigin`'s scale feature is useful if you want to make your content "appear" at a position on a detected plane and to scale, for example, a building sized object to a table-top miniature.
+ARシーンでコンテンツの見た目上の拡大縮小を調整する方法を示すサンプル。これはコンテンツの代わりに、 `ARSessionOrigin` を移動、回転、スケーリング（拡大縮小）することにより行われる。複雑なシーンだと作成後に移動できない場合が多く（地形など）、拡大縮小は物理学、パーティクルエフェクト、AIナビゲーションなど他のシステムに悪影響を与える可能性がある。  `ARSessionOrigin` のスケール機能は検出された平面の位置にコンテンツを「表示」し、例えばテーブルサイズのミニチュアを建物サイズのオブジェクトにスケールさせる場合に便利。
 
+`ARSessionOrigin` のスケール機能は、検出された平面上の位置にコンテンツを「表示」し、たとえば、テーブルサイズのミニチュアに建物サイズのオブジェクトを拡大する場合に便利です。
 
-このサンプルは、ARシーンのコンテンツの見かけのスケールを調整する方法を示しています。これは、コンテンツの代わりに「ARSessionOrigin」を移動、回転、およびスケーリングすることにより行います。複雑なシーンは、作成後に移動できない場合が多く（例：地形）、スケールは物理学、パーティクルエフェクト、AIナビゲーションなどの他のシステムに悪影響を与える可能性があります。 `ARSessionOrigin`のスケール機能は、検出された平面上の位置にコンテンツを「表示」し、たとえば、テーブルサイズのミニチュアに建物サイズのオブジェクトをスケールする場合に便利です。
-
-To use this sample, first move the device around until a plane is detected, then tap on the plane. Content will appear at the touch point. After the content is placed, you can adjust its rotation and scale using the on-screen sliders. Note that the content itself is never moved, rotated, or scaled.
+このサンプルを使うには、まず平面が検出されるまで端末を動かし、検出されたら平面をタップする。コンテンツは平面の当たったポイントに表示される。コンテンツが配置された後、画面上のスライダーを使って回転、拡大縮小を調整できる。コンテンツ自体は移動、回転、縮小されないことに注意すること。
 
 このサンプルを使用するには、まず飛行機が検出されるまでデバイスを動かしてから、飛行機をタップします。タッチポイントにコンテンツが表示されます。コンテンツを配置した後、画面上のスライダーを使用してその回転と拡大縮小を調整できます。コンテンツ自体は移動、回転、拡大縮小されないことに注意してください。
 
