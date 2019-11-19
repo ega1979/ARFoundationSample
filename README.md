@@ -39,7 +39,7 @@ ARKit3の機能はXCode11とiOS/iPadOS13が必須。
 
 ## SimpleAR
 
-PoindCloudのビジュアライゼーションと平面検出を有効した簡単なサンプル。
+PoindCloudのビジュアライゼーションと平面検出を有効にした簡単なサンプル。
 スクリーン上にARSessionをPause(一時停止)、Resume(再開)、Reset(リセット)、Reload(リロードボタン)が用意されている。
 
 平面が検知されると、検知した平面をタップすることで、キューブを置くことができる。
@@ -52,9 +52,11 @@ PoindCloudのビジュアライゼーションと平面検出を有効した簡�
 | Reset | すべての検出されたオブジェクトを削除し、効果的に新たなARSessionを開始する。 |
 | Reload | ARSession上のゲームオブジェクトを完全に破棄して、再インスタンス化する。これによってシーンの切り替え時に発生する可能性のある動作をシミュレートできる。 |
 
+
 ## Check Support
 
-画面にARされているかとログをチェックし結果を表示するデモ。これに関連するスクリプトは、 [`SupportChecker.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/SupportChecker.cs)
+画面上にARにサポートの有無とログをチェックし結果を表示するデモ。これに関連するスクリプトは、 [`SupportChecker.cs`](https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/SupportChecker.cs)
+
 
 ## LightEstimation
 
@@ -83,7 +85,7 @@ ARシーンでコンテンツの見た目上の拡大縮小を調整する方法
 
 ## CameraImage
 
-CPU上でかめたテクスチャを操作する方法を示すサンプル。パススルーカメラのビデオフォードにはGPUのみのテクスチャが含まれ、CPUでそれらを操作（例えばコンピュータービジョンのアルゴリズム用）には、高価なGPUの読み取りが必要になる。幸いにも、ARFoundationでは、さらなる処理のためにCPU上でカメラ画像を取得するAPIを提供している。
+CPU上でのカメラテクスチャを制御するやり方を示すサンプル。パススルーカメラのビデオフォードにはGPUのみのテクスチャが含まれ、CPUでそれらを操作（例えばコンピュータービジョンのアルゴリズム用）には、高価なGPUの読み取りが必要になる。幸いにも、ARFoundationでは、さらなる処理のためにCPU上でカメラ画像を取得するAPIを提供している。
 
 関連するスクリプトは[`TestCameraImage.cs`]（https://github.com/Unity-Technologies/arfoundation-samples/blob/master/Assets/Scripts/TestCameraImage.cs）。
 
