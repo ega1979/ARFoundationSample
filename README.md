@@ -174,7 +174,7 @@ CPUイメージの解像度はカメラの設定に影響する。現在の設�
 
 ## ObjectTracking
 
-Image Trackingのサンプルに似て、このサンプルは `XRReferenceObjectLibrary` で参照オブジェクトのセットから3D object検出する。これの作成手順については、[ここを参照](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/object-tracking.html) 。
+Image Trackingのサンプルに似て、このサンプルは `XRReferenceObjectLibrary` で参照オブジェクトのセットから3D objectを検出する。これの作成手順については、[ここを参照](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/object-tracking.html) 。
 
 このサンプルでは、端末で認識できる物理オブジェクトが必要。サンプルの参照オブジェクトライブラリは2つの参照オブジェクトを使ってビルドされている。このサンプルには、[印刷可能なテンプレート](https://github.com/Unity-Technologies/arfoundation-samples/tree/master/Assets/Scenes/Object%20Tracking/Printable%20Templates)が含まれていて、8.5x11インチの紙に印刷して、キューブ上の筒に折りたたんで使うことができる。
 
@@ -216,16 +216,16 @@ Image Trackingのサンプルに似て、このサンプルは `XRReferenceObjec
 
 ### EyeLasers, EyePoses, FixationPoint
 
-これらサンプルは目と注視点をトラキングする様を示したデモ。アイトラッキングは検出した顔の目に関する姿勢（位置と回転）を生成し、 `fixation point(注視点)` は顔を見ている（つまり注視されている）点にあたる。 `EyeLasers` は、目の姿勢を使って検出された顔から放射されるレーザービームを描画している。
+これらサンプルは目と注視点をトラッキングする様を示したデモ。アイトラッキングは検出した顔の目に関する姿勢（位置と回転）を生成し、 `fixation point(注視点)` は顔を見ている（つまり注視されている）点にあたる。 `EyeLasers` は、目の姿勢を使って検出された顔から放射されるレーザービームを描画している。
 
 このサンプルはフロントカメラ（自撮り）を使用しており、さらにTrueDepth cameraを搭載したiOS端末が必須。
 
 
 ### RearCameraWithFrontCameraFaceMesh
 
-iOS 13では背面カメラがアクティブなときのフェイストラッキングのサポートが追加されている。このサンプルは現在追跡されている顔の数だけのものである。ARFoundationでこのモードを有効にするために、 `ARFaceManager` と背面カメラを必須とする少なくとも1つの他のマネージャー（※この詳細はまだ調査中）の両方を有効にする必要がある。このサンプルでは `ARFaceManager` と `ARPlaneManager` を有効にしている。
+iOS13では背面カメラがアクティブなときのフェイストラッキングのサポートが追加されている。このサンプルは現在追跡されている顔の数だけのものである。ARFoundationでこのモードを有効にするために、 `ARFaceManager` と背面カメラを必須とする少なくとも1つの他のマネージャー（※この詳細はまだ調査中）の両方を有効にする必要がある。このサンプルでは `ARFaceManager` と `ARPlaneManager` を有効にしている。
 
-この機能は、TrueDepth cameraとiOS 13が動作しているA12 bionicチップ搭載した端末を必須とする。
+この機能は、TrueDepth cameraとiOS13が動作しているA12 bionicチップ搭載した端末を必須とする。
 
 
 ## HumanBodyTracking2D
@@ -253,8 +253,9 @@ iOS 13では背面カメラがアクティブなときのフェイストラッ�
 
 ## AllPointCloudPoints
 
-`AR Default Point Cloud` プレハブが行っているように現在のフレームの特徴点だけでなく、すべての特徴点を経時的に表示するサンプル。
+`AR Default Point Cloud` プレハブが行っているようにサンプル。
 これはすべての特徴点をディクショナリに格納する `ARPointCloudParticleVisualzier` の一部修正されたバージョンを使用することで利用することで行うことができる。
+
 各特徴点が一意的な識別子を持っているので、保存された点を検索し、存在している場合はディクショナリにあるその点の位置を更新する。
 これはポイントクラウドの点群マップを必要とするカスタムソリューション（例えばカスタムメッシュの再構築技術など）に役に立つと思われる。
 
