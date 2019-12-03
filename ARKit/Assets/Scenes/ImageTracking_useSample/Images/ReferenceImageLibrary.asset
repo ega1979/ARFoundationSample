@@ -36,22 +36,42 @@ MonoBehaviour:
     m_Name: Logo
     m_Texture: {fileID: 2800000, guid: 5a804a4ff1f7e4038b1f1e6f4ad8a02b, type: 3}
   - m_SerializedGuid:
-      m_GuidLow: 5602505921028117032
-      m_GuidHigh: 208412801924047543
-    m_SerializedTextureGuid:
-      m_GuidLow: 288924497207985411
-      m_GuidHigh: 4143232447317295274
-    m_Size: {x: 0.05, y: 0.05}
-    m_SpecifySize: 1
-    m_Name: QRCode
-    m_Texture: {fileID: 2800000, guid: a6fd8503774c0402aa403884f5b77f39, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 5753242218522193651
-      m_GuidHigh: 13950200671282128275
+      m_GuidLow: 5160213389324335583
+      m_GuidHigh: 7623598796671253637
     m_SerializedTextureGuid:
       m_GuidLow: 2660806791249311302
       m_GuidHigh: 2222020951419007339
+    m_Size: {x: 0.05, y: 0.0375}
+    m_SpecifySize: 1
+    m_Name: 001
+    m_Texture: {fileID: 2800000, guid: d85cb64615ad24ed6b31ce544834d61e, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5190704658748386453
+      m_GuidHigh: 11102590860722713756
+    m_SerializedTextureGuid:
+      m_GuidLow: 3753797826492419987
+      m_GuidHigh: 16031670847382048763
+    m_Size: {x: 0.05, y: 0.0375}
+    m_SpecifySize: 1
+    m_Name: 002
+    m_Texture: {fileID: 2800000, guid: 16b6cf932b3c3418fb4f313eb2ef7bde, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5232212879207390988
+      m_GuidHigh: 16976756944359396249
+    m_SerializedTextureGuid:
+      m_GuidLow: 8404044465841410316
+      m_GuidHigh: 5614867469424494187
     m_Size: {x: 0.1, y: 0.075}
     m_SpecifySize: 1
-    m_Name: Yuni_work01
-    m_Texture: {fileID: 2800000, guid: d85cb64615ad24ed6b31ce544834d61e, type: 3}
+    m_Name: 003
+    m_Texture: {fileID: 2800000, guid: 4710910c29ea74a16b86f1ef3604ec4d, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5386641685181759526
+      m_GuidHigh: 11579134380931466164
+    m_SerializedTextureGuid:
+      m_GuidLow: 3817346517378884545
+      m_GuidHigh: 6027770226451631739
+    m_Size: {x: 0.1, y: 0.075}
+    m_SpecifySize: 1
+    m_Name: 004
+    m_Texture: {fileID: 2800000, guid: b0f163c1f06e34f97b4e539f15f1a653, type: 3}
